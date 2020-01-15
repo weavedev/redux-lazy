@@ -1,5 +1,5 @@
 {
-  "name": "redux-lazy",
+  "name": "@weavedev/redux-lazy",
   "version": "0.1.0",
   "description": "lazy function wrapper for redux powered by redux-saga",
   "main": "dist/index.js",

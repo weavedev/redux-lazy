@@ -11,6 +11,12 @@ Quick save component for data storage in [Redux](http://redux.js.org/)
 npm i @weavedev/redux-lazy
 ```
 
+## API documentation
+
+We generate API documentation with [TypeDoc](https://typedoc.org).
+
+[![API Documentation](https://img.shields.io/badge/API-Documentation-blue?style=for-the-badge&logo=appveyor)](https://weavedev.github.io/redux-lazy/)
+
 ## Usage
 
 ### Creating

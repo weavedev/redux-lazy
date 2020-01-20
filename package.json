@@ -1,9 +1,9 @@
 {
   "name": "@weavedev/redux-lazy",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "lazy function wrapper for redux powered by redux-saga",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/ReduxLazy.js",
+  "types": "dist/ReduxLazy.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "ci:test": "npm-run-all -l build test:*",

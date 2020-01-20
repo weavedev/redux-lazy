@@ -78,9 +78,39 @@
 				<a href="#creating" id="creating" style="color: inherit; text-decoration: none;">
 					<h3>Creating</h3>
 				</a>
+				<p>In this example we create a reducer and action to save an object  to the store containing a message.</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { ReduxLazy } <span class="hljs-keyword">from</span> <span class="hljs-string">'@weavedev/redux-lazy'</span>;
+
+<span class="hljs-keyword">interface</span> MyState {
+    message: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">const</span> SAVE_ACTION = <span class="hljs-string">'SAVE_ACTION'</span>;
+<span class="hljs-keyword">const</span> defaultState: MyState = {
+    message: <span class="hljs-string">'Hello!'</span>,
+};
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> message = <span class="hljs-keyword">new</span> ReduxLazy(SAVE_ACTION, defaultState);
+
+<span class="hljs-comment">// If you are also using our store package (@weavedev/store)</span>
+<span class="hljs-built_in">window</span>.storeReducers.message = message.reducer;
+
+<span class="hljs-keyword">declare</span> global {
+    <span class="hljs-keyword">interface</span> StoreReducersMap {
+        message: <span class="hljs-keyword">typeof</span> message.reducer;
+    }
+
+    <span class="hljs-keyword">interface</span> StoreActionsMap {
+        message: <span class="hljs-keyword">typeof</span> message.actions;
+    }
+}</code></pre>
 				<a href="#saving" id="saving" style="color: inherit; text-decoration: none;">
 					<h3>Saving</h3>
 				</a>
+				<p>You can update the state by calling <code>.save()</code>. The argument type matches that of the default state provided in the constructor.</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { message } <span class="hljs-keyword">from</span> <span class="hljs-string">'./message'</span>;
+
+<span class="hljs-comment">// If you are also using our store package (@weavedev/store)</span>
+<span class="hljs-built_in">window</span>.store.dispatch(message.save({ message: <span class="hljs-string">'Hey!'</span> }));</code></pre>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>

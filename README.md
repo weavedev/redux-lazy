@@ -15,7 +15,45 @@ npm i @weavedev/redux-lazy
 
 ### Creating
 
+In this example we create a reducer and action to save an object  to the store containing a message.
+
+```ts
+import { ReduxLazy } from '@weavedev/redux-lazy';
+
+interface MyState {
+    message: string;
+}
+
+const SAVE_ACTION = 'SAVE_ACTION';
+const defaultState: MyState = {
+    message: 'Hello!',
+};
+export const message = new ReduxLazy(SAVE_ACTION, defaultState);
+
+// If you are also using our store package (@weavedev/store)
+window.storeReducers.message = message.reducer;
+
+declare global {
+    interface StoreReducersMap {
+        message: typeof message.reducer;
+    }
+
+    interface StoreActionsMap {
+        message: typeof message.actions;
+    }
+}
+```
+
 ### Saving
+
+You can update the state by calling `.save()`. The argument type matches that of the default state provided in the constructor.
+
+```ts
+import { message } from './message';
+
+// If you are also using our store package (@weavedev/store)
+window.store.dispatch(message.save({ message: 'Hey!' }));
+```
 
 ## License
 

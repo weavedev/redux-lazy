@@ -1,35 +1,44 @@
 import { Action, Reducer } from 'redux';
 
 interface SaveAction<T, D> extends Action<T> {
-    data: Partial<D>;
+    data: D;
+}
+
+interface LazyState<D> {
+    data: D;
+    updated: string;
 }
 
 /**
  * With love for Thijs
  */
 export class ReduxLazy<T extends string, D> {
-    public readonly state: D;
+    public readonly state: LazyState<D>;
 
     private readonly saveActionType: T;
 
     constructor(save: T, defaultState: D) {
         this.saveActionType = save;
-        this.state = defaultState;
+        this.state = {
+            data: defaultState,
+            updated: new Date().toISOString(),
+        };
     }
 
     public get actions(): SaveAction<T, D> {
         throw new Error('ReduxAsync.actions should only be used as a TypeScript type provider');
     }
 
-    public get reducer(): Reducer<D> {
+    public get reducer(): Reducer<LazyState<D>> {
         const context: ReduxLazy<T, D> = this;
 
-        return (s: D = context.state, action: Action): D => {
+        return (s: LazyState<D> = context.state, action: Action): LazyState<D> => {
             switch(action.type) {
                 case (context.saveActionType):
                     return {
                         ...s,
-                        ...(<SaveAction<T, D>>action).data,
+                        data: (<SaveAction<T, D>>action).data,
+                        updated: new Date().toISOString(),
                     };
                 default:
                     return s;
@@ -37,7 +46,7 @@ export class ReduxLazy<T extends string, D> {
         };
     }
 
-    public save(i: Partial<D>): SaveAction<T, D> {
+    public save(i: D): SaveAction<T, D> {
         return {
             type: this.saveActionType,
             data: i,

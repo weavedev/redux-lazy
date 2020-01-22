@@ -46,7 +46,7 @@ export class ReduxLazy<T extends string, D> {
         };
     }
 
-    public save(i: D): SaveAction<T, D> {
+    public run(i: D): SaveAction<T, D> {
         return {
             type: this.saveActionType,
             data: i,

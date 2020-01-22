@@ -52,13 +52,13 @@ declare global {
 
 ### Saving
 
-You can update the state by calling `.save()`. The argument type matches that of the default state provided in the constructor.
+You can update the state by calling `.run()`. The argument type matches that of the default state provided in the constructor.
 
 ```ts
 import { message } from './message';
 
 // If you are also using our store package (@weavedev/store)
-window.store.dispatch(message.save({ message: 'Hey!' }));
+window.store.dispatch(message.run({ message: 'Hey!' }));
 ```
 
 ## License

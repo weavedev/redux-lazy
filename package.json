@@ -1,6 +1,6 @@
 {
   "name": "@weavedev/redux-lazy",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "lazy function wrapper for redux powered by redux-saga",
   "main": "dist/ReduxLazy.js",
   "types": "dist/ReduxLazy.d.ts",

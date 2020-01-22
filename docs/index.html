@@ -113,11 +113,11 @@
 				<a href="#saving" id="saving" style="color: inherit; text-decoration: none;">
 					<h3>Saving</h3>
 				</a>
-				<p>You can update the state by calling <code>.save()</code>. The argument type matches that of the default state provided in the constructor.</p>
+				<p>You can update the state by calling <code>.run()</code>. The argument type matches that of the default state provided in the constructor.</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { message } <span class="hljs-keyword">from</span> <span class="hljs-string">'./message'</span>;
 
 <span class="hljs-comment">// If you are also using our store package (@weavedev/store)</span>
-<span class="hljs-built_in">window</span>.store.dispatch(message.save({ message: <span class="hljs-string">'Hey!'</span> }));</code></pre>
+<span class="hljs-built_in">window</span>.store.dispatch(message.run({ message: <span class="hljs-string">'Hey!'</span> }));</code></pre>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>

@@ -84,7 +84,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">Reduxable</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_reduxlazy_.lazystate.html" class="tsd-signature-type">LazyState</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">D</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">D</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span>
+						<span class="tsd-signature-type">Reduxable</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_reduxlazy_.lazystate.html" class="tsd-signature-type">LazyState</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">D</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_reduxlazy_.reduxlazyactionmap.html" class="tsd-signature-type">ReduxLazyActionMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">D</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">D</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">ReduxLazy</span>
@@ -113,7 +113,8 @@
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite"><a href="_reduxlazy_.reduxlazy.html#actions" class="tsd-kind-icon">actions</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite"><a href="_reduxlazy_.reduxlazy.html#actionmap" class="tsd-kind-icon">action<wbr>Map</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_reduxlazy_.reduxlazy.html#actions" class="tsd-kind-icon">actions</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite"><a href="_reduxlazy_.reduxlazy.html#defaultstate" class="tsd-kind-icon">default<wbr>State</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite"><a href="_reduxlazy_.reduxlazy.html#internalreducer" class="tsd-kind-icon">internal<wbr>Reducer</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_reduxlazy_.reduxlazy.html#reducer" class="tsd-kind-icon">reducer</a></li>
@@ -143,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L23">ReduxLazy.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L27">ReduxLazy.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -168,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>State<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">D</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L21">ReduxLazy.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L25">ReduxLazy.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +179,7 @@
 					<div class="tsd-signature tsd-kind-icon">save<wbr>Action<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L23">ReduxLazy.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L27">ReduxLazy.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,13 +187,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
+					<a name="actionmap" class="tsd-anchor"></a>
+					<h3>action<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">action<wbr>Map<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<p>Overrides Reduxable.actionMap</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L35">ReduxLazy.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 					<a name="actions" class="tsd-anchor"></a>
 					<h3>actions</h3>
 					<div class="tsd-signature tsd-kind-icon">actions<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
-						<p>Overrides Reduxable.actions</p>
+						<p>Inherited from Reduxable.actions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L31">ReduxLazy.ts:31</a></li>
+							<li>Defined in /Users/paulgerarts/git/github.com/gerarts/redux-lazy/node_modules/@weavedev/reduxable/dist/Reduxable.d.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +215,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Reduxable.defaultState</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L35">ReduxLazy.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L39">ReduxLazy.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +226,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Reduxable.internalReducer</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L44">ReduxLazy.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L48">ReduxLazy.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +237,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Reduxable.reducer</p>
 						<ul>
-							<li>Defined in /Users/paulgerarts/git/github.com/gerarts/redux-lazy/node_modules/@weavedev/reduxable/dist/Reduxable.d.ts:19</li>
+							<li>Defined in /Users/paulgerarts/git/github.com/gerarts/redux-lazy/node_modules/@weavedev/reduxable/dist/Reduxable.d.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +248,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Reduxable.runSaga</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L74">ReduxLazy.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L78">ReduxLazy.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +259,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Reduxable.saga</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L63">ReduxLazy.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L67">ReduxLazy.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -258,7 +270,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Reduxable.state</p>
 						<ul>
-							<li>Defined in /Users/paulgerarts/git/github.com/gerarts/redux-lazy/node_modules/@weavedev/reduxable/dist/Reduxable.d.ts:20</li>
+							<li>Defined in /Users/paulgerarts/git/github.com/gerarts/redux-lazy/node_modules/@weavedev/reduxable/dist/Reduxable.d.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -276,7 +288,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Reduxable.run</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/9822ba2/lib/ReduxLazy.ts#L67">ReduxLazy.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/gerarts/redux-lazy/blob/8959486/lib/ReduxLazy.ts#L71">ReduxLazy.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -319,6 +331,9 @@
 								<a href="_reduxlazy_.reduxlazy.html#saveactiontype" class="tsd-kind-icon">save<wbr>Action<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_reduxlazy_.reduxlazy.html#actionmap" class="tsd-kind-icon">action<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 								<a href="_reduxlazy_.reduxlazy.html#actions" class="tsd-kind-icon">actions</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
@@ -348,6 +363,9 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
 						<a href="../interfaces/_reduxlazy_.lazystate.html" class="tsd-kind-icon">Lazy<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+						<a href="../interfaces/_reduxlazy_.reduxlazyactionmap.html" class="tsd-kind-icon">Redux<wbr>Lazy<wbr>Action<wbr>Map</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
 						<a href="../interfaces/_reduxlazy_.saveaction.html" class="tsd-kind-icon">Save<wbr>Action</a>

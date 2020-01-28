@@ -1,10 +1,14 @@
 import { SagaIterator } from '@redux-saga/types';
-import { InternalReducer, Reduxable } from '@weavedev/reduxable';
+import { ActionMap, InternalReducer, Reduxable } from '@weavedev/reduxable';
 import { Action } from 'redux';
 import { put } from 'redux-saga/effects';
 
 interface SaveAction<T, D> extends Action<T> {
     data: D;
+}
+
+interface ReduxLazyActionMap<T, D> extends ActionMap {
+    save: SaveAction<T, D>;
 }
 
 interface LazyState<D> {
@@ -17,7 +21,7 @@ interface LazyState<D> {
 /**
  * With love for Thijs
  */
-export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, [D]> {
+export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, ReduxLazyActionMap<T, D>, [D]> {
     public readonly defaultStateData: D;
 
     private readonly saveActionType: T;
@@ -28,7 +32,7 @@ export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, [D]>
         this.defaultStateData = defaultState;
     }
 
-    public get actions(): SaveAction<T, D> {
+    public get actionMap(): ReduxLazyActionMap<T, D> {
         throw new Error('ReduxAsync.actions should only be used as a TypeScript type provider');
     }
 

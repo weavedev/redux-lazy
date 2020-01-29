@@ -1,5 +1,5 @@
 import { SagaIterator } from '@redux-saga/types';
-import { ActionMap, InternalReducer, Reduxable } from '@weavedev/reduxable';
+import { ActionMap, ActionTypesFromActionMap, InternalReducer, Reduxable } from '@weavedev/reduxable';
 import { Action } from 'redux';
 import { put } from 'redux-saga/effects';
 
@@ -22,13 +22,15 @@ interface LazyState<D> {
  * With love for Thijs
  */
 export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, ReduxLazyActionMap<T, D>, [D]> {
+    public readonly actionTypeMap: ActionTypesFromActionMap<ReduxLazyActionMap<T, D>>;
     public readonly defaultStateData: D;
-
-    private readonly saveActionType: T;
 
     constructor(save: T, defaultState: D) {
         super();
-        this.saveActionType = save;
+        this.actionTypeMap = {
+            save,
+        };
+
         this.defaultStateData = defaultState;
     }
 
@@ -50,7 +52,7 @@ export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, Redu
 
         return (s: LazyState<D>, action: Action): LazyState<D> => {
             switch(action.type) {
-                case (context.saveActionType):
+                case (context.actionTypeMap.save):
                     return {
                         ...s,
                         data: (<SaveAction<T, D>>action).data,
@@ -70,7 +72,7 @@ export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, Redu
 
     public run(i: D): SaveAction<T, D> {
         return {
-            type: this.saveActionType,
+            type: this.actionTypeMap.save,
             data: i,
         };
     }

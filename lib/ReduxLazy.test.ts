@@ -33,6 +33,10 @@ test('Should throw when accessing .actionMap', () => {
     }).toThrowError();
 });
 
+test('Should return action types from actionTypeMap', () => {
+    expect(l.actionTypeMap.save).toEqual('S');
+});
+
 test('Should set default data on the store', () => {
     expect(store.getState().data).toEqual({ amount: 0, message: 'default' });
 });

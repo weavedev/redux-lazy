@@ -27,10 +27,14 @@ beforeEach(() => {
     sagaMiddleware.run(l.saga);
 });
 
-test('Should throw when accessing .actions', () => {
+test('Should throw when accessing .actionMap', () => {
     expect(() => {
-        console.log(l.actions, 'never');
+        console.log(l.actionMap, 'never');
     }).toThrowError();
+});
+
+test('Should return action types from actionTypeMap', () => {
+    expect(l.actionTypeMap.save).toEqual('S');
 });
 
 test('Should set default data on the store', () => {

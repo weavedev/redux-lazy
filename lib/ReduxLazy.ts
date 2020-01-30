@@ -1,10 +1,14 @@
 import { SagaIterator } from '@redux-saga/types';
-import { InternalReducer, Reduxable } from '@weavedev/reduxable';
+import { ActionMap, ActionTypesFromActionMap, InternalReducer, Reduxable } from '@weavedev/reduxable';
 import { Action } from 'redux';
 import { put } from 'redux-saga/effects';
 
 interface SaveAction<T, D> extends Action<T> {
     data: D;
+}
+
+interface ReduxLazyActionMap<T, D> extends ActionMap {
+    save: SaveAction<T, D>;
 }
 
 interface LazyState<D> {
@@ -17,18 +21,20 @@ interface LazyState<D> {
 /**
  * With love for Thijs
  */
-export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, [D]> {
+export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, ReduxLazyActionMap<T, D>, [D]> {
+    public readonly actionTypeMap: ActionTypesFromActionMap<ReduxLazyActionMap<T, D>>;
     public readonly defaultStateData: D;
-
-    private readonly saveActionType: T;
 
     constructor(save: T, defaultState: D) {
         super();
-        this.saveActionType = save;
+        this.actionTypeMap = {
+            save,
+        };
+
         this.defaultStateData = defaultState;
     }
 
-    public get actions(): SaveAction<T, D> {
+    public get actionMap(): ReduxLazyActionMap<T, D> {
         throw new Error('ReduxAsync.actions should only be used as a TypeScript type provider');
     }
 
@@ -46,7 +52,7 @@ export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, [D]>
 
         return (s: LazyState<D>, action: Action): LazyState<D> => {
             switch(action.type) {
-                case (context.saveActionType):
+                case (context.actionTypeMap.save):
                     return {
                         ...s,
                         data: (<SaveAction<T, D>>action).data,
@@ -66,7 +72,7 @@ export class ReduxLazy<T extends string, D> extends Reduxable<LazyState<D>, [D]>
 
     public run(i: D): SaveAction<T, D> {
         return {
-            type: this.saveActionType,
+            type: this.actionTypeMap.save,
             data: i,
         };
     }
